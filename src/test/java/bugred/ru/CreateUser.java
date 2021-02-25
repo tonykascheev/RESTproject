@@ -10,23 +10,23 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class CreateUser {
     @Test
-    public void createUser () {
+    public void createUser() {
         Response response =
-        given().
-                contentType("application/json").body
+                given().
+                        contentType("application/json").body
                         ("{\n" +
                                 "  \"email\": \"AngryDisgustingWizard@magic.ru\",\n" +
                                 "  \"name\": \"Genzel Argue\",\n" +
                                 "  \"tasks\": [56],\n" +
                                 "  \"companies\": [7, 8]\n" +
                                 "}\n").
-                when().
-                    post("http://users.bugred.ru/tasks/rest/createuser").
-                then().
-                    statusCode(200).
-                assertThat().body("type",equalTo("success")).
-                extract().response();
-                response.getBody().print();
+                        when().
+                        post("http://users.bugred.ru/tasks/rest/createuser").
+                        then().
+                        statusCode(200).
+                        assertThat().body("type", equalTo("success")).
+                        extract().response();
+        response.getBody().print();
 
 
     }

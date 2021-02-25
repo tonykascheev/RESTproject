@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class CreateUserWithTasks {
     @Test
-    public void createUserWithTask () {
+    public void createUserWithTask() {
         given().
                 contentType("{\n" +
                         " \"email\": \"dangobango@tetris.ru\",\n" +
@@ -29,7 +29,7 @@ public class CreateUserWithTasks {
                 post("http://users.bugred.ru/tasks/rest/createuser").
                 then().
                 statusCode(200).
-                assertThat().body("type",equalTo("success"));
+                assertThat().body("type", equalTo("success"));
         Response response = post("http://users.bugred.ru/tasks/rest/createuser");
         LOGGER.info("New post has been added" + "\n" + response.getBody().asString());
 

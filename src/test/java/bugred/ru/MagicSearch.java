@@ -11,16 +11,16 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class MagicSearch {
     @Test
-    public void magicSearch () {
+    public void magicSearch() {
         Response response =
-                        given().body("{\n" +
-                                "\"query\":\"George Fliguell\"\n" +
-                                "}").
+                given().body("{\n" +
+                        "\"query\":\"George Fliguell\"\n" +
+                        "}").
                         when().
                         post("http://users.bugred.ru/tasks/rest/magicsearch").
                         then().
                         statusCode(232).
-                        assertThat().body("foundCount",equalTo(3)).extract().response();
+                        assertThat().body("foundCount", equalTo(3)).extract().response();
         response.getBody().print();
     }
 }

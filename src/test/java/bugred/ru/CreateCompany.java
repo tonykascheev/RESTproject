@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class CreateCompany {
     @Test
-    public void createCompany () {
+    public void createCompany() {
         Response response =
                 given().
                         contentType("application/json").body
@@ -22,8 +22,8 @@ public class CreateCompany {
                         post("http://users.bugred.ru/tasks/rest/createcompany").
                         then().
                         statusCode(200).
-                        assertThat().body("type",equalTo("success")).
+                        assertThat().body("type", equalTo("success")).
                         extract().response();
-                        response.getBody().print();
+        response.getBody().print();
     }
 }

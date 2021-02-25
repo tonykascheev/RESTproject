@@ -9,21 +9,22 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class DoRegister {
     String name = "Joseph Stafflin";
+
     @Test
-    public void doRegister () {
+    public void doRegister() {
         Response response =
                 given().
                         contentType("application/json").body
                         ("{\n" +
                                 "    \"email\": \"participant21@secta.ru\",\n" +
-                                "    \"name\":" +name+",\n" +
+                                "    \"name\":" + name + ",\n" +
                                 "    \"password\": \"24\"\n" +
                                 "}").
                         when().
                         post("http://users.bugred.ru/tasks/rest/doregister").
                         then().
                         statusCode(200).
-                        assertThat().body("name",equalTo(name)).
+                        assertThat().body("name", equalTo(name)).
                         extract().response();
         response.getBody().print();
     }
